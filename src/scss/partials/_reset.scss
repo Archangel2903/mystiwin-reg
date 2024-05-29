@@ -17,6 +17,7 @@ html, body {
   -webkit-text-size-adjust: none;
   -ms-text-size-adjust: none;
   text-size-adjust: none;
+  color: $text-color;
   font-family: $font-family-base;
   font-size: $font-size-default;
 }
@@ -32,11 +33,11 @@ section {
 a {
   outline: none;
   color: $link-color;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-decoration: underline;
+  -webkit-tap-highlight-color: transparent;
   @include transition($transition-base);
   &:hover {
     color: $link-hover-color;
-    text-decoration: underline;
   }
   &:active,
   &:focus,
@@ -74,7 +75,7 @@ td {
   }
 }
 
-//form elements
+// FORM ELEMENTS
 form {
   padding: 0;
   margin: 0;
@@ -101,15 +102,8 @@ button, input, textarea {
   }
 }
 
-::-webkit-input-placeholder {
-  font-weight: $font-weight-light;
-  font-size: 1rem;
-  color: $input-placeholder-color;
-  transition: $transition-base;
-}
-
+::-webkit-input-placeholder,
 ::-webkit-textarea-placeholder {
-  font-weight: $font-weight-light;
   font-size: 1rem;
   color: $input-placeholder-color;
   transition: $transition-base;
@@ -127,14 +121,8 @@ input {
     &:focus {
       background: none;
 
-      &::-webkit-input-placeholder {
-        color: transparent;
-        transform: rotate3d(1, 0, 0, 90deg);
-      }
-      &::-moz-placeholder {
-        color: transparent;
-        transform: rotate3d(1, 0, 0, 90deg);
-      }
+      &::-webkit-input-placeholder,
+      &::-moz-placeholder,
       &::-ms-placeholder {
         color: transparent;
         transform: rotate3d(1, 0, 0, 90deg);
@@ -157,20 +145,15 @@ input {
     border: none;
   }
   &[type="search"] {
-    &::-webkit-search-cancel-button, &::-webkit-search-decoration {
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-decoration {
       -webkit-appearance: none;
       -moz-appearance: none;
     }
   }
 
-  &::-moz-placeholder {
-    font-weight: $font-weight-light;
-    font-size: 1rem;
-    color: $input-placeholder-color;
-    transition: $transition-base;
-  }
+  &::-moz-placeholder,
   &::-ms-placeholder {
-    font-weight: $font-weight-light;
     font-size: 1rem;
     color: $input-placeholder-color;
     transition: $transition-base;
@@ -201,21 +184,14 @@ textarea {
     }
   }
 
-  &::-moz-placeholder {
-    font-weight: $font-weight-light;
-    font-size: 1rem;
-    color: $input-placeholder-color;
-    transition: $transition-base;
-  }
+  &::-moz-placeholder,
   &::-ms-placeholder {
-    font-weight: $font-weight-light;
     font-size: 1rem;
     color: $input-placeholder-color;
     transition: $transition-base;
   }
 }
-
-//end form elements
+// END FORM ELEMENTS
 
 hr {
   height: 1px;
@@ -307,17 +283,20 @@ iframe {
 ::selection {
   text-shadow: none;
   color: $selection-text-color;
+  -webkit-text-fill-color: $selection-text-color;
   background: $selection-bg-color;
 }
 
 ::-moz-selection {
   text-shadow: none;
   color: $selection-text-color;
+  -webkit-text-fill-color: $selection-text-color;
   background: $selection-bg-color;
 }
 
 ::-ms-selection {
   text-shadow: none;
   color: $selection-text-color;
+  -webkit-text-fill-color: $selection-text-color;
   background: $selection-bg-color;
 }

@@ -9,23 +9,33 @@
 <body>
 <!-- BODY -->
 <div class="main-wrapper">
+    <div class="section-bg">
+        <picture>
+            <source media="(min-width: 1025px)" srcset="<%= require('./img/bg-horisontal.png') %>">
+            <img src="<%= require('./img/bg-vertical.png') %>" class="section-bg__img" alt="" title="">
+        </picture>
+    </div>
     <!-- HEADER -->
     <header class="header">
         <div class="container">
-            <h1>Header Title</h1>
+            <a href="#" class="logo">
+                <img src="<%= require('./img/logo.svg') %>" alt="" title="">
+            </a>
         </div>
     </header>
     <!-- HEADER END -->
 
     <!-- CONTENT -->
     <main class="content">
-        <section class="section">
+        <section class="section section-content">
             <div class="container">
                 <div class="registration">
                     <div class="registration__offer">
-                        <p class="registration__offer-text">Congrats!</p>
-                        <p class="registration__offer-text">You won Welcome Bonus</p>
-                        <p class="registration__offer-title">1500 <span>$ +</span> 150 <span>fs</span></p>
+                        <picture class="registration__offer-decor">
+                            <img src="<%= require('./img/red-flag.svg') %>" alt="" title="">
+                        </picture>
+                        <p class="registration__offer-text">Welcom bonus</p>
+                        <p class="registration__offer-title">150 <span>fs +</span> 1500 <span>$</span></p>
                     </div>
 
                     <form method="post" action="" class="registration__form">
@@ -70,7 +80,7 @@
                                 </label>
                             </div>
                             <div class="col-sm-6">
-                                <button type="submit" class="btn btn-primary w-100">Register & Get Bonus</button>
+                                <button type="submit" class="btn btn-style w-100">Register & Get Bonus</button>
                             </div>
                         </div>
                     </form>
