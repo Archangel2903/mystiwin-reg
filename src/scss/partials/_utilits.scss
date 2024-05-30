@@ -92,12 +92,10 @@
     padding: 12px;
     background: linear-gradient(to right, #fffda0 0%,#ffde54 20%,#fddc6a 40%,#ffa020 60%,#f0c618 80%,#ffde54 100%);
     border: none;
-    border-radius: 750px;
     box-shadow: none;
     overflow: hidden;
     outline: none;
     color: $gray-color;
-    font-size: 24px;
     font-weight: 900;
     text-align: center;
     text-decoration: none;
@@ -115,7 +113,112 @@
 }
 
 form {
+  &.form {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: stretch;
+    gap: 20px;
+    max-width: 100%;
+
+    .form {
+      &-row {
+        gap: 20px;
+      }
+    }
+  }
   .form {
+    &-group {
+      position: relative;
+      width: 100%;
+      margin: 0;
+    }
+
+    &-control {
+      height: 42px;
+      padding: 16px 10px;
+      background: $input-bg-color;
+      border: 1px solid $input-border-color;
+      border-radius: 5px;
+      box-shadow: none !important;
+      color: $input-text-color !important;
+      outline: none !important;
+      transition: $transition-base;
+
+      &:focus {
+        &:not(:placeholder-shown) {
+          background: $input-focus-bg !important;
+          border-color: $input-focus-border !important;
+
+          & ~ .form-label {
+            top: -6px;
+            left: 16px;
+            background: var(--blue);
+            padding: 0 4px;
+            opacity: 1;
+            font-size: 12px;
+            line-height: 1;
+          }
+        }
+      }
+
+      &:not(:placeholder-shown) {
+        & ~ .form-label {
+          top: -6px;
+          left: 16px;
+          background: var(--blue);
+          padding: 0 4px;
+          opacity: 1;
+          font-size: 12px;
+          line-height: 1;
+        }
+      }
+
+      &.access {
+        &:not(:placeholder-shown) {
+          border-color: #3eb94a;
+        }
+      }
+
+      &.error {
+        &:not(:placeholder-shown) {
+          border-color: #f84a24;
+        }
+      }
+    }
+
+    &-title {
+      margin: 0;
+      font-weight: 700;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    &-text {
+      margin: 0;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: normal;
+      text-align: center;
+
+      a {
+        color: var(--gold);
+      }
+    }
+
+    &-separate-text {
+      margin: -20px 0;
+      font-size: 14px;
+      line-height: 21px;
+      text-align: center;
+    }
+
+    textarea {
+      min-height: 60px;
+      max-height: 250px;
+    }
+
     &-input-button {
       position: static;
       top: 0;
@@ -149,99 +252,14 @@ form {
       }
     }
   }
-
-  .form-group {
-    position: relative;
-    width: 100%;
-    margin: 0;
-  }
-
-  .form-control {
-    height: 42px;
-    padding: 16px 10px;
-    background: $input-bg-color;
-    border: 1px solid $input-border-color;
-    border-radius: 5px;
-    box-shadow: none !important;
-    color: $input-text-color !important;
-    outline: none !important;
-    transition: $transition-base;
-
-    &:focus,
-    &:not(:placeholder-shown) {
-      background: $input-focus-bg !important;
-      border-color: $input-focus-border !important;
-
-      & ~ .form-label {
-        top: -6px;
-        left: 16px;
-        background: var(--blue);
-        padding: 0 4px;
-        opacity: 1;
-        font-size: 12px;
-        line-height: 1;
-      }
-    }
-
-    &.access {
-      &:not(:placeholder-shown) {
-        border-color: #3eb94a;
-      }
-    }
-
-    &.error {
-      &:not(:placeholder-shown) {
-        border-color: #f84a24;
-      }
-    }
-  }
-
-  .form-text {
-    margin: 0 0 20px;
-  }
-
-  textarea {
-    min-height: 60px;
-    max-height: 250px;
-  }
 }
 
-.modal {
-  &-dialog {
-    max-width: 480px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  &-content {
-    background: var(--blue);
-    border-radius: 5px;
-  }
-
-  .close {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    width: 24px;
-    height: 24px;
-    overflow: hidden;
-    background: none;
-    border: none;
-    padding: 0;
-
-    &::before, &::after {
-      content: '';
-      position: absolute;
-      width: 16px;
-      height: 2px;
-      background: #fff;
-      transform: translate(-50%, -50%);
-    }
-    &::before {
-      transform: translate(-50%, -50%) rotate(45deg);
-    }
-    &::after {
-      transform: translate(-50%, -50%) rotate(-45deg);
+@include media-breakpoint-up(sm) {
+  form {
+    &.form {
+      .form-row {
+        gap: 0;
+      }
     }
   }
 }

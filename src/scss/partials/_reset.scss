@@ -121,8 +121,14 @@ input {
     &:focus {
       background: none;
 
-      &::-webkit-input-placeholder,
-      &::-moz-placeholder,
+      &::-webkit-input-placeholder{
+        color: transparent;
+        transform: rotate3d(1, 0, 0, 90deg);
+      }
+      &::-moz-placeholder{
+        color: transparent;
+        transform: rotate3d(1, 0, 0, 90deg);
+      }
       &::-ms-placeholder {
         color: transparent;
         transform: rotate3d(1, 0, 0, 90deg);

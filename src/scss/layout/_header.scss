@@ -7,5 +7,12 @@ header.header {
   position: relative;
   min-width: 320px;
   width: 100%;
+  padding: 20px 0 0;
   z-index: 100;
+}
+
+.logo {
+  img {
+    width: 84px;
+  }
 }
